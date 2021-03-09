@@ -95,6 +95,42 @@ public class MainActivity extends AppCompatActivity {
         equation = editor;
     }
 
+    public void minusBtn(View view){
+        String editor = equation + "-";
+        outputBox.setText(editor);
+        equation = editor;
+    }
+
+    public void multiplyBtn(View view){
+        String editor = equation + "*";
+        outputBox.setText(editor);
+        equation = editor;
+    }
+
+    public void divideBtn(View view){
+        String editor = equation + "/";
+        outputBox.setText(editor);
+        equation = editor;
+    }
+
+    public void lBracketBtn(View view){
+        String editor = equation + "(";
+        outputBox.setText(editor);
+        equation = editor;
+    }
+
+    public void rBracketBtn(View view){
+        String editor = equation + ")";
+        outputBox.setText(editor);
+        equation = editor;
+    }
+
+    public void decimalBtn(View view){
+        String editor = equation + ".";
+        outputBox.setText(editor);
+        equation = editor;
+    }
+
     public void equalsBtn(View view){
 
     Expression exp = new Expression(equation);

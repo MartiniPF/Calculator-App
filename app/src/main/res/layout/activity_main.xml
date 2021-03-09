@@ -31,18 +31,21 @@
                 android:id="@+id/button20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="lBracketBtn"
                 android:text="(" />
 
             <Button
                 android:id="@+id/button19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="rBracketBtn"
                 android:text=")" />
 
             <Button
                 android:id="@+id/button17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="divideBtn"
                 android:text="DIVIDE" />
         </TableRow>
 
@@ -75,6 +78,7 @@
                 android:id="@+id/button10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="multiplyBtn"
                 android:text="x" />
         </TableRow>
 
@@ -107,6 +111,7 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="minusBtn"
                 android:text="-" />
         </TableRow>
 
@@ -164,6 +169,7 @@
                 android:id="@+id/button16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="decimalBtn"
                 android:text="." />
 
             <Button
