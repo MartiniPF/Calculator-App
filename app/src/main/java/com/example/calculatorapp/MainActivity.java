@@ -2,6 +2,7 @@ package com.example.calculatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -20,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
         outputBox.setText(equation);
 
     }
+
+    public void moveActivity(View view){
+        Intent goToSimul = new Intent(getApplicationContext(), simulEquationsCalc.class);
+        startActivity(goToSimul);
+    }
+
+
 
 
     // -------------- Methods for adding user inputs to screen -------------------------------------------------------------------------------------
