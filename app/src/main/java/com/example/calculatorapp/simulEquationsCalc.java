@@ -3,6 +3,8 @@ package com.example.calculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 
 import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Expression;
@@ -10,17 +12,14 @@ import org.mariuszgromada.math.mxparser.Function;
 
 public class simulEquationsCalc extends AppCompatActivity {
 
-    int x;
-    int y;
-
-    int a = 3;
-    int b = 3;
-    int j = 1;
-    int k = 7;
-    int r = 18;
-    int r2 = 30;
-
     int neg1 = -1;
+
+    EditText xInput1;
+    EditText yInput1;
+    EditText result1;
+    EditText xInput2;
+    EditText yInput2;
+    EditText result2;
 
 
     @Override
@@ -28,33 +27,71 @@ public class simulEquationsCalc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simul_equations_calc);
 
-        // ----- Make equations have same X coefficient
-        int aj = a*j;
-        int jb = j*b;
-        int ak = a*k;
-        int ar2 = a*r2;
-
-        // ---- Multiply one equation by -1
-
-        int naj = aj * neg1;
-        int njb = jb * neg1;
-        int nr = r*neg1;
-        int eqResult = ar2 - r;
-
-        int rY = ak - jb;
-
-        int y = eqResult / rY;
-
-        int x = r2 - k*y;
-
-        System.out.println("This is simul value for Y: " + y);
-
-        System.out.println("This is simul value for X: " + x);
-
-
+        xInput1 = findViewById(R.id.coeffX1);
+        yInput1 = findViewById(R.id.coeffY1);
+        result1 = findViewById(R.id.result1);
+        xInput2 = findViewById(R.id.coeffX2);
+        yInput2 = findViewById(R.id.coeffY2);
+        result2 = findViewById(R.id.result2);
 
 
 
 
     }
+
+    public void calculate(View view) {
+
+        String xVal1 = xInput1.getText().toString();
+        String xVal2 = xInput2.getText().toString();
+        String yVal1 = yInput1.getText().toString();
+        String yVal2 = yInput2.getText().toString();
+        String r1 = result1.getText().toString();
+        String r2 = result2.getText().toString();
+
+        int coeffX1  = Integer.parseInt(xVal1);
+        int coeffX2 = Integer.parseInt(xVal2);
+        int coeffY1 = Integer.parseInt(yVal1);
+        int coeffY2 = Integer.parseInt(yVal2);
+        int res1 = Integer.parseInt(r1);
+        int res2 = Integer.parseInt(r2);
+
+        // ----- Make equations have same X coefficient
+
+        // standardise equation 1
+        int NcoeffX1 = coeffX1*coeffX2;
+        int NcoeffY1 = coeffY1 * coeffX2;
+        int Nres1 = res1 * coeffX2;
+        System.out.println("EQ 1 is:  " + NcoeffX1 + "X + " + NcoeffY1 + "Y = " + Nres1);
+
+        // standardise equation 2
+        int NcoeffX2 = NcoeffX1;
+        int NcoeffY2 = coeffY2 * coeffX1;
+        int Nres2 = res2 * coeffX1;
+        System.out.println("EQ 2 is:  " + NcoeffX2 + "X + " + NcoeffY2 + "Y = " + Nres2);
+        // multiply equation 2 by (-1) to cancel X's
+
+        int McoeffX2 = NcoeffX2 * neg1;
+        int McoeffY2 = NcoeffY2 * neg1;
+        int Mres2 = Nres2 * neg1;
+        System.out.println("EQ 2 is:  " + McoeffX2 + "X + " + McoeffY2 + "Y = " + Mres2);
+
+        // subtract Y's
+        int eY = McoeffY2 + NcoeffY1;
+        int eRes = Nres1 + Mres2;
+        int Y = eRes / eY;
+        System.out.println("Y = " + Y);
+        System.out.println("res = " + eRes);
+
+        // Find X based on Y
+
+        int nX = res1 - coeffY1 * Y;
+        int X = nX / coeffX1;
+        System.out.println("X = " + X);
+
+
+
+    }
+
+
+
 }
