@@ -4,7 +4,7 @@
         android:icon="@drawable/ic_calcpad"
         android:id="@+id/calculator"/>
 
-    <item android:title="Equations"
+    <item android:title="Simul Equations"
         android:icon="@drawable/ic_algebra"
         android:id="@+id/SimulEquations"/>
 </menu>

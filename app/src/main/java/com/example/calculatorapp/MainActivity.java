@@ -1,9 +1,11 @@
 package com.example.calculatorapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,6 +22,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.botNav);
+        bottomNavigationView.setSelectedItemId(R.id.calculator);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.calculator:
+                       // startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        return true;
+
+                    // other cases
+                    case R.id.SimulEquations:
+                        startActivity(new Intent(getApplicationContext(), simulEquationsCalc.class));
+                        return true;
+
+                }
+                return false;
+            }
+        });
+
+
 
         outputBox = findViewById(R.id.outputBar);
         outputBox.setText(equation);

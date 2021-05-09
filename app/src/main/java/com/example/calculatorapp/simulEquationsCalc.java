@@ -1,8 +1,11 @@
 package com.example.calculatorapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,13 +29,31 @@ public class simulEquationsCalc extends AppCompatActivity {
     TextView xResult;
     TextView yResult;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simul_equations_calc);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.botNav);
+        bottomNavigationView.setSelectedItemId(R.id.SimulEquations);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.calculator:
+                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        return true;
+
+                    // other cases
+                    case R.id.SimulEquations:
+                       // startActivity(new Intent(getApplicationContext(), simulEquationsCalc.class));
+                        return true;
+
+                }
+                return false;
+            }
+        });
 
         xInput1 = findViewById(R.id.coeffX1);
         yInput1 = findViewById(R.id.coeffY1);
