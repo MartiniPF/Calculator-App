@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.mariuszgromada.math.mxparser.Function;
@@ -29,6 +31,8 @@ public class simulEquationsCalc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simul_equations_calc);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.botNav);
 
         xInput1 = findViewById(R.id.coeffX1);
         yInput1 = findViewById(R.id.coeffY1);
