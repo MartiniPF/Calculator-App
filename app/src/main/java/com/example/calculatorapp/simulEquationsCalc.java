@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Expression;
@@ -20,6 +21,8 @@ public class simulEquationsCalc extends AppCompatActivity {
     EditText xInput2;
     EditText yInput2;
     EditText result2;
+    TextView xResult;
+    TextView yResult;
 
 
     @Override
@@ -34,9 +37,8 @@ public class simulEquationsCalc extends AppCompatActivity {
         yInput2 = findViewById(R.id.coeffY2);
         result2 = findViewById(R.id.result2);
 
-
-
-
+        xResult = findViewById(R.id.resultX);
+        yResult = findViewById(R.id.resultY);
     }
 
     public void calculate(View view) {
@@ -88,10 +90,8 @@ public class simulEquationsCalc extends AppCompatActivity {
         int X = nX / coeffX1;
         System.out.println("X = " + X);
 
-
+        xResult.setText("X = " + X);
+        yResult.setText("Y = " + Y);
 
     }
-
-
-
 }

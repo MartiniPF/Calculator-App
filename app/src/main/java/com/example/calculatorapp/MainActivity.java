@@ -19,16 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
         outputBox = findViewById(R.id.outputBar);
         outputBox.setText(equation);
-
     }
 
     public void moveActivity(View view){
         Intent goToSimul = new Intent(getApplicationContext(), simulEquationsCalc.class);
         startActivity(goToSimul);
     }
-
-
-
 
     // -------------- Methods for adding user inputs to screen -------------------------------------------------------------------------------------
 
@@ -142,9 +138,7 @@ public class MainActivity extends AppCompatActivity {
     public void equalsBtn(View view){
 
     Expression exp = new Expression(equation);
-
     String result = String.valueOf(exp.calculate());
-
     outputBox.setText(result);
 
     }
